@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import {AiOutlineSearch} from "react-icons/ai";
 import background from '../images/background.jpg'
+import IntroPost from './IntroPost';
 const Search = () => {
+    const [postId,setPostId]=useState(1);
     const tags=[
         {
             id:1,
@@ -26,6 +28,7 @@ const Search = () => {
     ]
     const[activeIndex,setActiveIndex]=useState(0);
   return (
+    <>
     <div className='flex justify-center mt-8 flex-col md:px-[150px] px-[70px] '>
        <img src={background} alt="" className=' rounded-2xl h-[350px]'/>
        <div className='bg-white shadow-lg p-3 rounded-lg mt-[-20px] mx-[25%]
@@ -39,12 +42,15 @@ const Search = () => {
                     <ul onClick={()=>setActiveIndex(index)} className={`${index===activeIndex?'bg-blue-500 text-white':null}
                     p-1 pb-2 rounded-sm md:rounded-full cursor-pointer md:px-4 hover:scale-110 hover:border-[1px]
                     border-red-blue transition-all  duration-100 ease-in-out`} key={index}>
-                        <li>{item.name}</li>
+                        <li onClick={()=>setPostId(item.id)}>{item.name}</li>
                     </ul>
             )})
         }
        </div>
     </div>
+    <IntroPost postId={postId}/>
+    </>
+    
   )
 }
 

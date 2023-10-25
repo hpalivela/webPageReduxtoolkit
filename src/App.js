@@ -4,7 +4,6 @@ import{BrowserRouter as Router} from 'react-router-dom'
 import {Routes,Route} from'react-router-dom';
 import BlodDetails from './pages/BlodDetails';
 import Header from './components/Header';
-
 const App = () => {
   return (
     <div className='p-[20px]'>
